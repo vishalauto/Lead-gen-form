@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Generation Form</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-lg mx-4">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Enrollment Form</h1>
+        <p class="text-center text-gray-600 mb-8">Please fill out the form below to submit your information.</p>
+
+        <!-- Form Element:
+            - `action` is set to the provided POST URL.
+            - `method` is set to 'POST'.
+            - We'll use JavaScript to handle the submission with fetch API to prevent page reload.
+        -->
+        <form id="leadForm" action="https://evolvetech-innovations.trackdrive.com/track/posting/834/1009" method="POST">
+            
+            <!-- Hidden Fields required by the API -->
+            <input type="hidden" name="traffic_source_id" value="1009">
+
+            <!-- Checkbox to control the 'test' field -->
+            <div class="mb-4 flex items-center justify-end">
+                <input type="checkbox" id="testMode" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out rounded border-gray-300" checked>
+                <label for="testMode" class="ml-2 block text-sm font-medium text-gray-700">Submit as test lead</label>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- First Name Field -->
+                <div>
+                    <label for="first_name" class="block text-sm font-medium text-gray-700">First Name</label>
+                    <input type="text" id="first_name" name="first_name" required maxlength="100"
+                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3 border">
+                </div>
+                <!-- Last Name Field -->
+                <div>
+                    <label for="last_name" class="block text-sm font-medium text-gray-700">Last Name</label>
+                    <input type="text" id="last_name" name="last_name" required maxlength="100"
+                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3 border">
+                </div>
+            </div>
+
+            <!-- Email Field -->
+            <div class="mt-6">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email" name="email" required
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3 border">
+            </div>
+
+            <!-- Phone Field (10 digits) -->
+            <div class="mt-6">
+                <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}"
+                       title="Phone number must be 10 digits"
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3 border">
+            </div>
+            
+            <!-- Address Field -->
+            <div class="mt-6">
+                <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
+                <input type="text" id="address" name="address" required maxlength="100"
+                       class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3 border">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                <!-- City Field -->
+                <div>
+                    <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+                    <input type="text" id="city" name="city" required maxlength="100"
+                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3 border">
+                </div>
+                <!-- State Dropdown -->
+                <div>
+                    <label for="state" class="block text-sm font-medium text-gray-700">State</label>
+                    <select id="state" name="state" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3 border">
+                        <option value="">Select a State</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+                <!-- Zip Field (5 digits) -->
+                <div>
+                    <label for="zip" class="block text-sm font-medium text-gray-700">ZIP Code</label>
+                    <input type="text" id="zip" name="zip" required pattern="[0-9]{5}"
+                           title="ZIP code must be 5 digits"
+                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3 border">
+                </div>
+            </div>
+
+            <!-- Notes Field -->
+            <div class="mt-6">
+                <label for="notes" class="block text-sm font-medium text-gray-700">Notes (Optional)</label>
+                <textarea id="notes" name="notes" rows="4"
+                          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3 border"></textarea>
+            </div>
+            
+            <div class="mt-8 flex justify-center">
+                <!-- Submit Button -->
+                <button type="submit"
+                        class="bg-indigo-600 text-white font-bold py-3 px-6 rounded-md shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition ease-in-out duration-150">
+                    Submit
+                </button>
+            </div>
+            
+            <!-- Message area for success/error feedback -->
+            <div id="message" class="mt-6 text-center text-sm font-medium"></div>
+
+        </form>
+    </div>
+
+    <script>
+        // Get the form element
+        const form = document.getElementById('leadForm');
+        // Get the message div for feedback
+        const messageDiv = document.getElementById('message');
+        // Get the 'test' checkbox
+        const testModeCheckbox = document.getElementById('testMode');
+
+        // Listen for the form submission
+        form.addEventListener('submit', async (event) => {
+            // Prevent the default form submission (which would cause a page reload)
+            event.preventDefault();
+
+            // Clear any previous messages
+            messageDiv.textContent = '';
+            messageDiv.className = 'mt-6 text-center text-sm font-medium';
+
+            // Show a loading message
+            messageDiv.textContent = 'Submitting...';
+            messageDiv.classList.add('text-gray-500');
+
+            // Collect form data
+            const formData = new FormData(form);
+
+            // Add the 'test' field based on the checkbox state
+            formData.append('test', testModeCheckbox.checked ? 'true' : 'false');
+            
+            // Convert FormData to a URL-encoded string
+            const urlEncodedData = new URLSearchParams(formData).toString();
+            
+            try {
+                // Perform the POST request to the API
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: urlEncodedData,
+                    // The API endpoint requires specific CORS settings.
+                    // This is an example, and you might need to adjust based on the server's configuration.
+                    // 'mode: no-cors' can be used to prevent CORS errors, but the response cannot be read.
+                    // For a real-world scenario, the server must be configured to allow cross-origin requests.
+                });
+
+                // The TrackDrive API will return a JSON object on success.
+                // Since `mode: 'no-cors'` is often needed to avoid errors, we can't read the response directly.
+                // We'll assume a successful submission if the fetch call doesn't throw an error.
+                // For a production app, you would expect a readable response and check the status code.
+
+                // A quick check for a successful response (if CORS allows)
+                if (response.ok) {
+                    messageDiv.textContent = 'Success! Your information has been submitted.';
+                    messageDiv.classList.add('text-green-600');
+                    // Optionally reset the form after successful submission
+                    form.reset();
+                } else {
+                    // Handle non-200 responses if they are readable
+                    messageDiv.textContent = 'Submission failed. Please check your information and try again.';
+                    messageDiv.classList.add('text-red-600');
+                }
+
+            } catch (error) {
+                // Handle network errors or other exceptions
+                messageDiv.textContent = 'An error occurred during submission. Please try again later.';
+                messageDiv.classList.add('text-red-600');
+                console.error('Submission error:', error);
+            }
+        });
+    </script>
+
+</body>
+</html>
